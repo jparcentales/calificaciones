@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="notas.Views.LoginPage"
+             Title="Acceso"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F8F9FA">
+    <Grid x:Name="LoginRoot" RowDefinitions="*,Auto">
+        <ScrollView>
+            <VerticalStackLayout x:Name="LoginContent" Padding="28,36,28,24" Spacing="0"
+                                 VerticalOptions="Center" HorizontalOptions="Center" MaximumWidthRequest="620">
+                <Border BackgroundColor="#6D5BFF" WidthRequest="76" HeightRequest="76"
+                        HorizontalOptions="Center">
+                    <Label Text="S" FontSize="38" FontAttributes="Bold" TextColor="White"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </Border>
+                <Label Text="INSTITUTO SUDAMERICANO" FontSize="13" CharacterSpacing="2"
+                       FontAttributes="Bold" TextColor="#6D5BFF" Margin="0,24,0,8"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Tus notas, siempre claras." FontSize="36" LineHeight="1.05"
+                       FontAttributes="Bold" TextColor="#211B35" HorizontalTextAlignment="Center" />
+                <Label Text="Ingresa para consultar y calcular tu rendimiento académico." FontSize="15"
+                       TextColor="#77718A" Margin="0,12,0,28" HorizontalTextAlignment="Center" />
+
+                <Border x:Name="LoginCard" BackgroundColor="White" Padding="22">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Bienvenido" FontSize="22" FontAttributes="Bold" TextColor="#211B35" />
+                        <Label Text="Acceso de demostración" FontSize="13" TextColor="#858097" Margin="0,-10,0,2" />
+                        <Label Text="USUARIO" FontSize="11" CharacterSpacing="1.2" FontAttributes="Bold" TextColor="#635B78" />
+                        <Border BackgroundColor="#F3F4F6" Padding="14,2">
+                            <Entry x:Name="UserEntry" Placeholder="Ej. estudiante" Text="estudiante" TextColor="#211B35"
+                                   BackgroundColor="Transparent" HeightRequest="48"
+                                   PlaceholderColor="#A39DB2" ClearButtonVisibility="WhileEditing" />
+                        </Border>
+                        <Label Text="CONTRASEÑA" FontSize="11" CharacterSpacing="1.2" FontAttributes="Bold" TextColor="#635B78" />
+                        <Border BackgroundColor="#F3F4F6" Padding="14,2">
+                            <Entry x:Name="PasswordEntry" Placeholder="Ingresa tu contraseña" Text="1234" IsPassword="True"
+                                   TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48"
+                                   PlaceholderColor="#A39DB2" />
+                        </Border>
+                        <Label x:Name="ErrorLabel" IsVisible="False" TextColor="#C2415D" FontSize="13" />
+                        <Button Text="Entrar a mis calificaciones  →" Clicked="OnLoginClicked"
+                                BackgroundColor="#6D5BFF" TextColor="White" FontAttributes="Bold"
+                                CornerRadius="16" HeightRequest="54" Margin="0,5,0,0" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border BackgroundColor="#1A6D5BFF" Padding="14,12" Margin="0,16,0,0">
+                    <Label Text="Demo: estudiante  ·  clave: 1234" FontSize="12" TextColor="#5C4A9C"
+                           HorizontalTextAlignment="Center" />
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Label Grid.Row="1" Text="APRENDER · CRECER · TRASCENDER" FontSize="10" CharacterSpacing="2"
+               TextColor="#A39DB2" HorizontalTextAlignment="Center" Margin="0,0,0,18" />
+    </Grid>
+</ContentPage>

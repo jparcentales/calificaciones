@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="notas.Views.GradesPage"
+             Title="Calificaciones"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F8F9FA">
+    <Grid x:Name="PageRoot" RowDefinitions="*">
+        <ScrollView>
+            <VerticalStackLayout x:Name="GradesContent" Padding="28,26,28,34" Spacing="20"
+                                 HorizontalOptions="Center" MaximumWidthRequest="1240">
+                <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                    <VerticalStackLayout Spacing="3">
+                        <Label Text="INSTITUTO SUDAMERICANO" FontSize="10" CharacterSpacing="1.8"
+                               FontAttributes="Bold" TextColor="#7968B7" />
+                        <Label Text="Registro académico" FontSize="25" FontAttributes="Bold" TextColor="#211B35" />
+                    </VerticalStackLayout>
+                    <Border Grid.Column="1" BackgroundColor="White" WidthRequest="48" HeightRequest="48">
+                        <Label Text="✦" FontSize="23" TextColor="#6D4AFF" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" />
+                    </Border>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="18">
+                <Border x:Name="PeriodCard" BackgroundColor="#6D5BFF" Padding="20,18">
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                        <Label Text="PERIODO ACADÉMICO" FontSize="10" CharacterSpacing="1.5"
+                               FontAttributes="Bold" TextColor="#DCD3FF" />
+                        <Label Grid.Row="1" Text="Seguimiento de notas" FontSize="19" FontAttributes="Bold"
+                               TextColor="White" Margin="0,5,0,0" />
+                        <Border Grid.Column="1" Grid.RowSpan="2" BackgroundColor="#8266FF" Padding="12,9"
+                                VerticalOptions="Center">
+                            <Label Text="2026" TextColor="White" FontAttributes="Bold" FontSize="13" />
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="StudentCard" Grid.Column="1" BackgroundColor="White" Padding="18">
+                    <VerticalStackLayout Spacing="11">
+                        <Label Text="ESTUDIANTE" FontSize="10" CharacterSpacing="1.4" FontAttributes="Bold" TextColor="#817A92" />
+                        <Picker x:Name="StudentPicker" Title="Selecciona un estudiante" TextColor="#211B35"
+                                TitleColor="#A39DB2" SelectedIndexChanged="OnInputChanged" />
+                        <Label Text="FECHA DE REGISTRO" FontSize="10" CharacterSpacing="1.4" FontAttributes="Bold"
+                               TextColor="#817A92" Margin="0,5,0,0" />
+                        <DatePicker x:Name="GradeDatePicker" Format="dd/MM/yyyy" TextColor="#211B35" />
+                    </VerticalStackLayout>
+                </Border>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto" Margin="2,0">
+                    <Label Text="Evaluaciones" FontSize="19" FontAttributes="Bold" TextColor="#211B35" />
+                    <Label Grid.Column="1" Text="Cada parcial suma sobre 5" FontSize="11" TextColor="#817A92"
+                           VerticalTextAlignment="Center" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="18">
+                <Border x:Name="Partial1Card" BackgroundColor="White" Padding="20">
+                    <VerticalStackLayout Spacing="13">
+                        <Grid ColumnDefinitions="Auto,* ,Auto" ColumnSpacing="11">
+                            <Border BackgroundColor="#EEE9FF" WidthRequest="38" HeightRequest="38">
+                                <Label Text="01" FontSize="12" FontAttributes="Bold" TextColor="#6D4AFF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                                <Label Text="Parcial 1" FontSize="16" FontAttributes="Bold" TextColor="#211B35" />
+                                <Label Text="Seguimiento 30% + examen 20%" FontSize="11" TextColor="#817A92" />
+                            </VerticalStackLayout>
+                            <Label x:Name="Partial1Label" Grid.Column="2" Text="— / 5,00" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#6D4AFF" VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="11">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Seguimiento · × 0,30" FontSize="12" TextColor="#625C70" />
+                                <Border BackgroundColor="#F3F4F6" Padding="11,0">
+                                    <Entry x:Name="Follow1Entry" Placeholder="0 a 10" Keyboard="Numeric" TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48" TextChanged="OnInputChanged" />
+                                </Border>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Examen · × 0,20" FontSize="12" TextColor="#625C70" />
+                                <Border BackgroundColor="#F3F4F6" Padding="11,0">
+                                    <Entry x:Name="Exam1Entry" Placeholder="0 a 10" Keyboard="Numeric" TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48" TextChanged="OnInputChanged" />
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="Partial2Card" Grid.Column="1" BackgroundColor="White" Padding="20">
+                    <VerticalStackLayout Spacing="13">
+                        <Grid ColumnDefinitions="Auto,* ,Auto" ColumnSpacing="11">
+                            <Border BackgroundColor="#E7F6F1" WidthRequest="38" HeightRequest="38">
+                                <Label Text="02" FontSize="12" FontAttributes="Bold" TextColor="#25866A" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="1">
+                                <Label Text="Parcial 2" FontSize="16" FontAttributes="Bold" TextColor="#211B35" />
+                                <Label Text="Seguimiento 30% + examen 20%" FontSize="11" TextColor="#817A92" />
+                            </VerticalStackLayout>
+                            <Label x:Name="Partial2Label" Grid.Column="2" Text="— / 5,00" FontSize="13" FontAttributes="Bold"
+                                   TextColor="#25866A" VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="11">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Seguimiento · × 0,30" FontSize="12" TextColor="#625C70" />
+                                <Border BackgroundColor="#F3F4F6" Padding="11,0">
+                                    <Entry x:Name="Follow2Entry" Placeholder="0 a 10" Keyboard="Numeric" TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48" TextChanged="OnInputChanged" />
+                                </Border>
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                                <Label Text="Examen · × 0,20" FontSize="12" TextColor="#625C70" />
+                                <Border BackgroundColor="#F3F4F6" Padding="11,0">
+                                    <Entry x:Name="Exam2Entry" Placeholder="0 a 10" Keyboard="Numeric" TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48" TextChanged="OnInputChanged" />
+                                </Border>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="18">
+                <Border x:Name="FinalCard" BackgroundColor="#211B35" Padding="19">
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
+                        <Label Text="NOTA FINAL" FontSize="10" CharacterSpacing="1.5" FontAttributes="Bold" TextColor="#BFB5E8" />
+                        <Label x:Name="FinalScoreLabel" Grid.Row="1" Text="—" FontSize="42" FontAttributes="Bold" TextColor="White" Margin="0,0,0,0" />
+                        <Label Text="/ 10 puntos" Grid.Row="2" TextColor="#BFB5E8" FontSize="12" />
+                        <Border Grid.Column="1" Grid.RowSpan="3" BackgroundColor="#3A3152" Padding="13,10"
+                                VerticalOptions="Center">
+                            <Label x:Name="StatusLabel" Text="Pendiente" TextColor="#DDD5F6" FontSize="12" FontAttributes="Bold" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="12">
+                    <Label Text="Aprobado ≥ 7  ·  Complementario 5–6,99  ·  Reprobado &lt; 5" FontSize="11"
+                           TextColor="#817A92" HorizontalTextAlignment="Center" />
+                    <Button Text="✦   Calcular y ver resultado" Clicked="OnCalculateClicked"
+                            BackgroundColor="#6D5BFF" TextColor="White" FontAttributes="Bold" FontSize="15"
+                            CornerRadius="17" HeightRequest="56" />
+                </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
