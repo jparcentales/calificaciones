@@ -15,6 +15,7 @@
                         <Label Text="INSTITUTO SUDAMERICANO" FontSize="10" CharacterSpacing="1.8"
                                FontAttributes="Bold" TextColor="#7968B7" />
                         <Label Text="Registro académico" FontSize="25" FontAttributes="Bold" TextColor="#211B35" />
+                        <Label x:Name="ConnectedUserLabel" FontSize="12" TextColor="#6D5BFF" />
                     </VerticalStackLayout>
                     <Border Grid.Column="1" BackgroundColor="White" WidthRequest="48" HeightRequest="48">
                         <Label Text="✦" FontSize="23" TextColor="#6D4AFF" HorizontalTextAlignment="Center"

@@ -5,10 +5,14 @@ namespace notas.Views;
 public partial class GradesPage : ContentPage
 {
     private readonly CultureInfo _culture = CultureInfo.GetCultureInfo("es-EC");
+    private readonly string _userName;
+    private bool _welcomeShown;
 
-    public GradesPage()
+    public GradesPage(string userName)
     {
         InitializeComponent();
+        _userName = userName;
+        ConnectedUserLabel.Text = $"Sesión iniciada como {userName}";
         StudentPicker.ItemsSource = new[]
         {
             "Ana López", "Diego Martínez", "Camila Torres", "Mateo Sánchez", "Valentina Ruiz"
@@ -33,6 +37,12 @@ public partial class GradesPage : ContentPage
             AnimateCardAsync(Partial1Card, 105),
             AnimateCardAsync(Partial2Card, 155),
             AnimateCardAsync(FinalCard, 205));
+
+        if (!_welcomeShown)
+        {
+            _welcomeShown = true;
+            await DisplayAlertAsync("Bienvenido", $"¡Bienvenido, {_userName}! Ya puedes registrar las calificaciones.", "Continuar");
+        }
     }
 
     private void OnInputChanged(object? sender, EventArgs e)

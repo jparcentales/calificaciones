@@ -2,6 +2,9 @@ namespace notas.Views;
 
 public partial class LoginPage : ContentPage
 {
+    private static readonly string[] Users = ["Carlos", "Ana", "Jose"];
+    private static readonly string[] Passwords = ["carlos123", "ana123", "jose123"];
+
     public LoginPage()
     {
         InitializeComponent();
@@ -28,14 +31,17 @@ public partial class LoginPage : ContentPage
     {
         await AnimateButtonPressAsync(sender);
         var user = UserEntry.Text?.Trim();
-        if (string.Equals(user, "estudiante", StringComparison.OrdinalIgnoreCase) && PasswordEntry.Text == "1234")
+        var userIndex = Array.FindIndex(Users,
+            allowedUser => string.Equals(allowedUser, user, StringComparison.OrdinalIgnoreCase));
+
+        if (userIndex >= 0 && string.Equals(Passwords[userIndex], PasswordEntry.Text, StringComparison.Ordinal))
         {
             ErrorLabel.IsVisible = false;
-            await Navigation.PushAsync(new GradesPage());
+            await Navigation.PushAsync(new GradesPage(Users[userIndex]));
             return;
         }
 
-        ErrorLabel.Text = "Usuario o contraseña incorrectos. Prueba con estudiante / 1234.";
+        ErrorLabel.Text = "Usuario o contraseña incorrectos. Verifica tus credenciales asignadas.";
         ErrorLabel.IsVisible = true;
         await ErrorLabel.FadeToAsync(1, 180);
     }

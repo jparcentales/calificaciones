@@ -26,16 +26,16 @@
                 <Border x:Name="LoginCard" BackgroundColor="White" Padding="22">
                     <VerticalStackLayout Spacing="15">
                         <Label Text="Bienvenido" FontSize="22" FontAttributes="Bold" TextColor="#211B35" />
-                        <Label Text="Acceso de demostración" FontSize="13" TextColor="#858097" Margin="0,-10,0,2" />
+                        <Label Text="Ingresa con el usuario y la contraseña asignados." FontSize="13" TextColor="#858097" Margin="0,-10,0,2" />
                         <Label Text="USUARIO" FontSize="11" CharacterSpacing="1.2" FontAttributes="Bold" TextColor="#635B78" />
                         <Border BackgroundColor="#F3F4F6" Padding="14,2">
-                            <Entry x:Name="UserEntry" Placeholder="Ej. estudiante" Text="estudiante" TextColor="#211B35"
+                            <Entry x:Name="UserEntry" Placeholder="Escribe tu usuario" TextColor="#211B35"
                                    BackgroundColor="Transparent" HeightRequest="48"
                                    PlaceholderColor="#A39DB2" ClearButtonVisibility="WhileEditing" />
                         </Border>
                         <Label Text="CONTRASEÑA" FontSize="11" CharacterSpacing="1.2" FontAttributes="Bold" TextColor="#635B78" />
                         <Border BackgroundColor="#F3F4F6" Padding="14,2">
-                            <Entry x:Name="PasswordEntry" Placeholder="Ingresa tu contraseña" Text="1234" IsPassword="True"
+                            <Entry x:Name="PasswordEntry" Placeholder="Ingresa tu contraseña" IsPassword="True"
                                    TextColor="#211B35" BackgroundColor="Transparent" HeightRequest="48"
                                    PlaceholderColor="#A39DB2" />
                         </Border>
@@ -46,7 +46,7 @@
                     </VerticalStackLayout>
                 </Border>
                 <Border BackgroundColor="#1A6D5BFF" Padding="14,12" Margin="0,16,0,0">
-                    <Label Text="Demo: estudiante  ·  clave: 1234" FontSize="12" TextColor="#5C4A9C"
+                    <Label Text="Usuarios habilitados: Carlos  ·  Ana  ·  Jose" FontSize="12" TextColor="#5C4A9C"
                            HorizontalTextAlignment="Center" />
                 </Border>
             </VerticalStackLayout>
